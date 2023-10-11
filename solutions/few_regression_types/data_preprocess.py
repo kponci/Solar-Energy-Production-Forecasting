@@ -36,6 +36,8 @@ def preprocess_train_data(X: pd.DataFrame, y: pd.DataFrame, *args: [str]):
     if "replace NaNs for zeros":
         # there are NaNs in X (e.g. feature "snow_density"), replace them for zeros
         X.fillna(0, inplace=True)
+        # there are NaNs in y["pv_measurement"] in dataset B
+        y.fillna(0, inplace=True)
     return X, y
 
 
